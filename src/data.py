@@ -36,7 +36,7 @@ def preview_image(cols, rows, dataset):
 
 
 
-def data_transform(dataset_full, dataset_test, batch_size, RATIO = 0.85, use_augmentation=True):
+def data_transform(dataset_full, dataset_test, batch_size, RATIO = 0.85, use_augmentation=False):
     n_train_examples = int(len(dataset_full) * RATIO)
     n_val_examples = len(dataset_full) - n_train_examples
 

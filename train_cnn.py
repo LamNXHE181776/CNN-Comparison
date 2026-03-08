@@ -41,7 +41,7 @@ class Trainer:
         self.model = self.model_type(self.input_size, self.num_classes, self.act_func).to(self.device)
         
         self.criterion = nn.CrossEntropyLoss(label_smoothing=0.1)
-        self.optimizer = optim.AdamW(self.model.parameters(), lr=0.003, weight_decay=1e-4)
+        self.optimizer = optim.Adam(self.model.parameters(), lr=0.001, weight_decay=1e-4)
         self.scheduler = optim.lr_scheduler.CosineAnnealingLR(self.optimizer, T_max=self.epochs, eta_min=4e-5)
                                                                                                                   
 

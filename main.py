@@ -2,7 +2,7 @@ import os
 from train_cnn import Trainer
 import seaborn as sns
 from models.CNN import CNN
-from models.ResNet import ResNet
+from models.CNN2 import CNN_Dropout3
 from torch import nn
 import time
 
@@ -10,9 +10,9 @@ sns.set_style("whitegrid")
 
 def main():
     funcs = [nn.ReLU, nn.SiLU, nn.LeakyReLU, nn.GELU]
-    model1 = CNN
+    model1 = CNN_Dropout3
     p = model1.__name__
-    cnn_trainer = Trainer(model_type=model1, act_func=nn.SiLU, epochs = 120)
+    cnn_trainer = Trainer(model_type=model1, act_func=nn.ReLU, epochs = 40)
     summary = cnn_trainer.model_summary()
     current_time = time.strftime("%Y-%m-%d-%H:%M:%S", time.localtime())
     k = cnn_trainer.act_func.__name__
